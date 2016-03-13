@@ -219,7 +219,16 @@ def SortAndDisplay(Cl_list,Na_list):
     for i  in LIST:
         Display(i,Cl_Radius,Na_Radius,Box_width,Box_depth,Box_height)
 
-
+def IncrementSpeed(n):
+   for ion in LIST:
+      ion.vx *= n
+      ion.vy *= n
+      ion.vz *= n
+def PauseSpeed():
+   for ion in LIST:
+      ion.vx = 0
+      ion.vy = 0
+      ion.vz = 0
 def UpdateIons(Cl_list,Na_list,mass_Cl,mass_Na,ratio):
     for Cl in Cl_list:
         Cl.ax=Cl.fx/mass_Cl
@@ -296,6 +305,13 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             break
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                IncrementSpeed(1.25)
+            if event.key == pygame.K_DOWN:
+                IncrementSpeed(0.8)
+            if event.key == pygame.K_RIGHT:
+                PauseSpeed()
     time0=time()
     screen.fill(grey)
 
