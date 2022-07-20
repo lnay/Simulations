@@ -1,6 +1,5 @@
 import sys, pygame
 
-DISPLAY_SET_MODE = pygame.display.set_mode(size)
 pygame.init()
 from time import time
 
@@ -10,6 +9,7 @@ Box_width=200
 Box_height=500
 Box_depth=300
 size = Box_width, Box_height+100
+DISPLAY_SET_MODE = pygame.display.set_mode(size)
 screen = DISPLAY_SET_MODE
 pygame.display.set_caption("Ionic simulations")
 
